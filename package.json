@@ -1,0 +1,20 @@
+{
+  "name": "mock-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio de prueba para practicar ideas.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpx servor src/ index.html 1234 --reload",
+    "lint": "oxlint src/",
+    "format": "oxfmt src/"
+  },
+  "keywords": [],
+  "author": "vzq",
+  "license": "ISC",
+  "packageManager": "pnpm@10.30.3",
+  "devDependencies": {
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
+    "servor": "^4.0.2"
+  }
+}
