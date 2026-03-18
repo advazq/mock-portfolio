@@ -78,26 +78,146 @@ h6 {
 
 /* victor-mono-regular - latin */
 @font-face {
-    font-display: swap;
-    font-family: 'Victor Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/victor-mono-v5-latin-regular.woff2') format('woff2');
-  }
+  font-display: swap;
+  font-family: "Victor Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/victor-mono-v5-latin-regular.woff2") format("woff2");
+}
 
-  /* syne-regular - latin */
+/* syne-regular - latin */
 @font-face {
-    font-display: swap; 
-    font-family: 'Syne';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../fonts/syne-v24-latin-regular.woff2') format('woff2');
+  font-display: swap;
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/syne-v24-latin-regular.woff2") format("woff2");
+}
 
 /* Styles */
 
 :root {
-    --bg-color: #1f2229;
-    --yellow: #edbb36;
-
+  --black: #1f2229;
+  --yellow: #edbb36;
+  --green: #4f8a5b;
+  --grey: #b6b4b7;
+  --orange: #d97a2b;
+  --violet: #6f42c1;
+  --blue: #3f6ed8;
+  --pink: #d96aa7;
+  --burgundy: #7a263a;
+  --pastel-yellow: #f3de8a;
+  --apple-green: #8ccf3f;
+  --white: #f3f4f6;
 }
 
+body {
+  background-color: var(--black);
+  color: var(--grey);
+  font-family: "Victor Mono", Arial, sans-serif;
+}
+
+/* Título y barra de navegación */
+
+.main-header {
+  font-family: "Syne", Arial, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #101111;
+
+  h1 {
+    font-size: 64px;
+    color: var(--white);
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--grey);
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-item-link {
+    color: var(--grey);
+    text-decoration: none;
+  }
+  & .nav-item-link:hover {
+    color: var(--white);
+    cursor: pointer;
+  }
+}
+
+.about-header {
+  a {
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  span {
+    color: var(--white);
+  }
+  & span:hover {
+    background-color: var(--green);
+    cursor: pointer;
+  }
+}
+
+/* Contenido principal: sección "Sobre mí" */
+
+.about-me {
+  margin: 5rem 2.5rem 5rem 2.5rem;
+
+  h1 {
+    font-size: xx-large;
+    color: var(--white);
+    padding: 1rem 0 1rem 0;
+  }
+
+  .about-header {
+    --padding: 1rem;
+    padding: var(--padding) 0 var(--padding) 0;
+  }
+  span {
+    border-bottom: 1px solid var(--apple-green);
+  }
+  a {
+    border-bottom: 1px solid var(--pink);
+  }
+  & a:hover {
+    background-color: var(--violet);
+  }
+}
+
+/* Tarjetas */
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2rem 0 2rem 0;
+}
+
+.card-about {
+  border: 1px solid var(--grey);
+  color: var(--black);
+  width: 30rem;
+  height: 24rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-image: linear-gradient(var(--green), var(--grey));
+
+  p {
+    font-size: small;
+  }
+}
