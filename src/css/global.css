@@ -98,14 +98,15 @@ h6 {
 
 :root {
   --black: #1f2229;
+  --darker-black: #101111;
+  --clearer-black: color-mix(in srgb, white 25%, var(--black));
   --yellow: #edbb36;
   --green: #4f8a5b;
   --grey: #b6b4b7;
+  --darker-grey: color-mix(in srgb, black 25%, var(var(--grey)));
   --orange: #d97a2b;
-  --violet: #6f42c1;
   --blue: #3f6ed8;
   --pink: #d96aa7;
-  --burgundy: #7a263a;
   --pastel-yellow: #f3de8a;
   --apple-green: #8ccf3f;
   --white: #f3f4f6;
@@ -123,8 +124,9 @@ body {
   font-family: "Syne", Arial, sans-serif;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  background-color: #101111;
+  justify-content: space-between;
+  background-color: var(--darker-black);
+  padding: 2rem;
 
   h1 {
     font-size: 64px;
@@ -164,35 +166,55 @@ body {
   span {
     color: var(--white);
   }
-  & span:hover {
-    background-color: var(--green);
-    cursor: pointer;
-  }
 }
 
 /* Contenido principal: sección "Sobre mí" */
 
 .about-me {
-  margin: 5rem 2.5rem 5rem 2.5rem;
+  margin: 3rem 2rem;
 
   h1 {
     font-size: xx-large;
     color: var(--white);
-    padding: 1rem 0 1rem 0;
+    padding: 1rem 0;
   }
 
   .about-header {
     --padding: 1rem;
     padding: var(--padding) 0 var(--padding) 0;
   }
-  span {
-    border-bottom: 1px solid var(--apple-green);
-  }
   a {
     border-bottom: 1px solid var(--pink);
   }
   & a:hover {
-    background-color: var(--violet);
+    background-color: var(--pink);
+  }
+}
+
+/* fieldset */
+.view-selector {
+  border: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0.25rem 0;
+
+  legend {
+    display: block;
+    text-decoration: underline;
+  }
+
+  input {
+    appearance: none;
+  }
+  & label:hover {
+    background-color: var(--clearer-black);
+    color: var(--white);
+    cursor: pointer;
+  }
+  & input:checked {
+    background-color: var(--clearer-black);
+    color: var(--white);
   }
 }
 
@@ -200,24 +222,25 @@ body {
 
 .card-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
   margin: 2rem 0 2rem 0;
 }
 
 .card-about {
   border: 1px solid var(--grey);
-  color: var(--black);
-  width: 30rem;
-  height: 24rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-image: linear-gradient(var(--green), var(--grey));
+  background-color: var(--clearer-black);
+  width: 400px;
+  height: 300px;
+}
 
   p {
     font-size: small;
+  }
+
+  h2 {
+    font-size: large;
   }
 }
