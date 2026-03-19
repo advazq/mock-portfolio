@@ -11,9 +11,8 @@
       <h1><span>vzq</span></h1>
       <nav>
         <ul class="nav-list">
-          <li><a class="nav-item-link">Sobre mí</a></li>
-          <li><a class="nav-item-link">Aprendiendo</a></li>
-          <li><a class="nav-item-link">Contacto</a></li>
+          <li><a class="nav-item-link">Introducción</a></li>
+          <li><a class="nav-item-link">Coco</a></li>
           <li>
             <a
               class="nav-item-link"
@@ -25,51 +24,117 @@
         </ul>
       </nav>
     </header>
-    <section class="about-me">
-      <header class="about-header">
-        <h1><span>Sobre mí</span></h1>
-        <p>
-          ¡Hola! Me llamo <span class="name">Adrián Vázquez</span> y he hecho este blog para
-          practicar lo que aprendo en el
-          <a href="https://bootcamp.manz.dev/" target="_blank">bootcamp de Manz.dev</a>.
-        </p>
-        <p>
-          Me gustaría presentarme. Soy, en resumen: marido, padre (recientemente) y trabajo como QA.
-          Aunque en estas tarjetas os enseñaré a lo más interesante de mi casa, Coco:
-        </p>
-      </header>
-      <fieldset class="view-selector">
-        <legend>Elige el tipo de vista:</legend>
+    <main class="wrapper">
+      <section class="introduction panel">
+        <header class="introduction-header">
+          <h1><span>Introducción</span></h1>
+        </header>
         <div>
-          <input
-            type="radio"
-            name="view-selector"
-            value="flex-horizontal"
-            id="flex-horizontal"
-            checked
-          />
-          <label for="flex-horizontal">Flex horizontal</label>
+          <p>
+            ¡Hola! Me llamo <span class="name">Adrián Vázquez</span> y he hecho este blog para
+            practicar lo que aprendo en el
+            <a href="https://bootcamp.manz.dev/" target="_blank">bootcamp de Manz.dev</a>
+          </p>
+          <p>En las siguientes secciones iré estilando "componentes" a modo de práctica.</p>
         </div>
+      </section>
+      <section class="coco-photos panel">
+        <header class="section-header">
+          <h1><span>Coco</span></h1>
+        </header>
         <div>
-          <input type="radio" name="view-selector" value="flex-vertical" id="flex-vertical" />
-          <label for="flex-vertical">Flex vertical</label>
+          <p>Esto es un panel para mostrar imágenes de mi perro usando flex y grid.</p>
         </div>
-        <div>
-          <input type="radio" name="view-selector" value="grid" id="grid" />
-          <label for="grid">Bento Grid</label>
-        </div>
-      </fieldset>
-      <div class="card-container">
-        <article class="card-about">
-          <header>
-            <h2>Coco</h2>
-            <p></p>
-          </header>
+        <fieldset class="view-selector">
           <div>
-            <img src="https://placehold.co/300x200" />
+            <input
+              type="radio"
+              name="view-selector"
+              value="flex-horizontal"
+              id="flex-horizontal"
+              checked
+            />
+            <label for="flex-horizontal">Flex horizontal</label>
           </div>
-        </article>
-      </div>
-    </section>
+          <div>
+            <input type="radio" name="view-selector" value="flex-vertical" id="flex-vertical" />
+            <label for="flex-vertical">Flex vertical</label>
+          </div>
+          <div>
+            <input type="radio" name="view-selector" value="grid" id="grid" />
+            <label for="grid">Grid</label>
+          </div>
+        </fieldset>
+        <div class="card-container">
+          <article class="card-photo">
+            <header class="card-header">
+              <h2 class="card-title">Coco en su cama</h2>
+            </header>
+            <div class="image-cover">
+              <img src="src/assets/images/coco-cama.avif" />
+            </div>
+          </article>
+          <article class="card-photo">
+            <header class="card-header">
+              <h2 class="card-title">F R I E N D S</h2>
+            </header>
+            <div class="image-cover">
+              <img src="src/assets/images/coco-colega.avif" />
+            </div>
+          </article>
+          <article class="card-photo">
+            <header class="card-header">
+              <h2 class="card-title">Like a Rolling Stone</h2>
+            </header>
+            <div class="image-cover">
+              <img src="src/assets/images/coco-lengua.avif" />
+            </div>
+          </article>
+          <article class="card-photo">
+            <header class="card-header">
+              <h2 class="card-title">They see me rollin'</h2>
+            </header>
+            <div class="image-cover">
+              <img src="src/assets/images/coco-playa.avif" />
+            </div>
+          </article>
+          <article class="card-photo">
+            <header class="card-header">
+              <h2 class="card-title">Intensito</h2>
+            </header>
+            <div class="image-cover">
+              <img src="src/assets/images/coco-playa2.avif" />
+            </div>
+          </article>
+          <article class="card-photo">
+            <header class="card-header">
+              <h2 class="card-title">De chiringuito</h2>
+            </header>
+            <div class="image-cover">
+              <img src="src/assets/images/coco-playa3.avif" />
+            </div>
+          </article>
+          <article class="card-photo">
+            <header class="card-header">
+              <h2 class="card-title">Crossing the bridge</h2>
+            </header>
+            <div class="image-cover">
+              <img src="src/assets/images/coco-puente.avif" />
+            </div>
+          </article>
+          <article class="card-photo">
+            <header class="card-header">
+              <h2 class="card-title">Weird face</h2>
+            </header>
+            <div class="image-cover">
+              <img src="src/assets/images/coco-raro.avif" />
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-card"><span>by vzq</span></div>
+    </footer>
   </body>
 </html>
