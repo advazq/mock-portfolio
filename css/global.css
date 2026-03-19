@@ -157,90 +157,116 @@ body {
   }
 }
 
-.about-header {
-  a {
-    text-decoration: none;
-    color: var(--white);
-  }
-
-  span {
-    color: var(--white);
-  }
+span {
+  color: var(--white);
 }
 
-/* Contenido principal: sección "Sobre mí" */
+/* Contenido general de las secciones y wrapper */
 
-.about-me {
-  margin: 3rem 2rem;
+.panel {
+  margin: 2rem;
 
-  h1 {
-    font-size: xx-large;
+  header h1 {
+    font-size: large;
     color: var(--white);
     padding: 1rem 0;
   }
 
-  .about-header {
-    --padding: 1rem;
-    padding: var(--padding) 0 var(--padding) 0;
-  }
   a {
-    border-bottom: 1px solid var(--pink);
+    text-decoration: underline var(--yellow);
+    color: var(--grey);
   }
   & a:hover {
-    background-color: var(--pink);
+    background-color: var(--yellow);
+    color: var(--black);
   }
 }
 
-/* fieldset */
+.panel + .panel {
+  border-top: 1px solid var(--grey);
+}
+
+/* Sección de fotos */
+
 .view-selector {
-  border: none;
+  padding: 0;
+  margin: 2rem 0;
   display: flex;
   flex-direction: row;
-  margin: 0;
-  padding: 0.25rem 0;
-
-  legend {
-    display: block;
-    text-decoration: underline;
-  }
+  border: none;
+  justify-content: center;
+  gap: 1rem;
 
   input {
     appearance: none;
   }
+
   & label:hover {
     background-color: var(--clearer-black);
     color: var(--white);
     cursor: pointer;
   }
-  & input:checked {
+
+  input:checked + label {
     background-color: var(--clearer-black);
     color: var(--white);
   }
 }
 
-/* Tarjetas */
-
 .card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   gap: 1rem;
-  margin: 2rem 0 2rem 0;
+  justify-content: center;
 }
 
-.card-about {
+.card-photo {
+  --size: 550px;
   border: 1px solid var(--grey);
+  border-radius: 12px;
   background-color: var(--clearer-black);
-  width: 400px;
-  height: 300px;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+
+  .image-cover {
+    --size: 500px;
+    width: var(--size);
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+
+  .image-cover img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+}
+/* flexbox vertical */
+.view-selector:has(input[value="flex-vertical"]:checked) + .card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-  p {
-    font-size: small;
-  }
+/* grid */
 
-  h2 {
-    font-size: large;
-  }
+.view-selector:has(input[value="grid"]:checked) + .card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-rows: auto;
+}
+
+footer {
+  background-color: var(--darker-black);
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
 }
