@@ -94,6 +94,10 @@ h6 {
   src: url("../assets/fonts/syne-v24-latin-regular.woff2") format("woff2");
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 /* Styles */
 
 :root {
@@ -201,15 +205,24 @@ span {
     appearance: none;
   }
 
+  label {
+    padding: 0.25rem;
+  }
+
   & label:hover {
-    background-color: var(--clearer-black);
     color: var(--white);
     cursor: pointer;
+    padding: 0.25rem;
+    border: 0.5px solid var(--grey);
+    border-radius: 12px;
   }
 
   input:checked + label {
-    background-color: var(--clearer-black);
-    color: var(--white);
+    background-color: var(--black);
+    padding: 0.25rem;
+    border: 0.5px solid var(--grey);
+    border-radius: 12px;
+    color: var(--apple-green);
   }
 }
 
@@ -217,26 +230,18 @@ span {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: center;
 }
 
 .card-photo {
-  --size: 550px;
-  border: 1px solid var(--grey);
+  --size: 280px;
+  border: 0.5px solid var(--grey);
   border-radius: 12px;
-  background-color: var(--clearer-black);
   width: var(--size);
   height: var(--size);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
 
   .image-cover {
-    --size: 500px;
-    width: var(--size);
     aspect-ratio: 1 / 1;
     overflow: hidden;
   }
@@ -244,9 +249,15 @@ span {
   .image-cover img {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
+    object-view-box: inset(15%);
+    transition: object-view-box ease 0.5s;
     border-radius: 12px;
+    cursor: zoom-in;
+  }
+
+  .image-cover img:hover {
+    object-view-box: inset(0);
   }
 }
 /* flexbox vertical */
@@ -254,19 +265,37 @@ span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 }
 
 /* grid */
 
 .view-selector:has(input[value="grid"]:checked) + .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-template-rows: auto;
+  justify-items: center;
 }
 
 footer {
-  background-color: var(--darker-black);
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-between;
+  background-color: var(--darker-black);
+  height: 10vh;
+
+  ul {
+    list-style: none;
+  }
+
+  .footer-item-link {
+    color: var(--grey);
+    text-decoration: none;
+    font-size: small;
+  }
+
+  &.footer-item-link:hover {
+    color: var(--white);
+    cursor: pointer;
+  }
 }
