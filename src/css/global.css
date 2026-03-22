@@ -29,28 +29,33 @@
   navigation: auto;
 }
 
-/* Styles */
-
 :root {
-  --black: #1f2229;
-  --darker-black: #101111;
-  --clearer-black: color-mix(in srgb, white 25%, var(--black));
+  /* Colores */
+  --bg-color: #1f2229;
+  --clearer-black: color-mix(in srgb, white 25%, var(--bg-color));
   --yellow: #edbb36;
-  --green: #4f8a5b;
   --grey: #b6b4b7;
   --darker-grey: color-mix(in srgb, black 25%, var(var(--grey)));
   --orange: #d97a2b;
-  --blue: #3f6ed8;
-  --pink: #d96aa7;
-  --pastel-yellow: #f3de8a;
-  --apple-green: #8ccf3f;
   --white: #f3f4f6;
+  --blue: #809eff;
+
+  /* Medidas de espaciado */
+  --global-margin: 8rem;
+  --global-padding: 2rem;
+
+  /* Tamaño de fuentes */
+  --normal: 24px;
+  --title: 64px;
+  --title-secondary: 32px;
+  --small: 18px;
 }
 
 body {
-  background-color: var(--black);
+  background-color: var(--bg-color);
   color: var(--grey);
   font-family: "Nunito", Arial, sans-serif;
+  font-size: var(--normal);
 }
 
 /* Título y barra de navegación */
@@ -60,8 +65,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: var(--darker-black);
-  padding: 2rem;
+  padding: var(--global-padding);
+  margin-inline: var(--global-margin);
 
   h1 {
     font-size: 64px;
@@ -85,10 +90,19 @@ body {
   .nav-item-link {
     color: var(--grey);
     text-decoration: none;
-  }
-  & .nav-item-link:hover {
-    color: var(--white);
-    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: inline-block;
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      color: var(--bg-color);
+      background-color: var(--white);
+      cursor: pointer;
+      transform: translateY(-5px);
+    }
   }
 }
 
@@ -97,6 +111,11 @@ span {
 }
 
 /* Contenido general de las secciones y wrapper */
+
+.wrapper {
+  padding: var(--global-padding);
+  margin-inline: var(--global-margin);
+}
 
 .panel {
   margin: 2rem;
@@ -108,12 +127,13 @@ span {
   }
 
   a {
-    text-decoration: underline var(--yellow);
+    text-decoration: underline var(--blue);
     color: var(--grey);
-  }
-  & a:hover {
-    background-color: var(--yellow);
-    color: var(--black);
+    transition: text-decoration 0.5s ease;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -300,7 +320,7 @@ span {
   --size: 720px;
   width: var(--size);
   height: var(--size);
-  background-color: color-mix(in srgb, var(--white), black 65%);
+  background-color: color-mix(in srgb, var(--white), black 10%);
   border-radius: 12px;
   box-shadow: -1px 2px 2px var(--grey);
   margin: auto;
@@ -309,6 +329,7 @@ span {
   justify-content: center;
 }
 .button-container {
+  background-color: white;
 }
 
 .button {
@@ -321,10 +342,9 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--darker-black);
   font-family: "Syne", Arial, sans-serif;
-  padding: 2rem;
-
+  padding: var(--global-padding);
+  margin-inline: var(--global-margin);
   .footer-list {
     list-style: none;
     padding: 0;
