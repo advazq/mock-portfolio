@@ -325,7 +325,7 @@ span {
   box-shadow: -1px 2px 2px var(--grey);
   margin: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 .button-container {
@@ -342,7 +342,6 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-family: "Syne", Arial, sans-serif;
   padding: var(--global-padding);
   margin-inline: var(--global-margin);
   .footer-list {
@@ -353,7 +352,7 @@ footer {
   .footer-item-link {
     color: var(--grey);
     text-decoration: none;
-    font-size: 16px;
+    font-size: var(--normals);
     font-family: "Syne", Arial, sans-serif;
   }
 
