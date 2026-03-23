@@ -137,6 +137,12 @@ span {
   }
 }
 
+.external-link {
+  display: inline;
+  width: 20px;
+  height: 20px;
+}
+
 .panel + .panel {
   border-top: 1px solid var(--grey);
 }
@@ -145,36 +151,43 @@ span {
 
 .view-selector {
   padding: 0;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   display: flex;
   flex-direction: row;
   border: none;
   justify-content: center;
-  gap: 1rem;
+  gap: 3rem;
 
   input {
     appearance: none;
   }
 
   label {
-    padding: 0.25rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover {
+      color: var(--bg-color);
+      background-color: var(--white);
+      cursor: pointer;
+      transform: translateY(-5px);
+    }
   }
 
-  & label:hover {
-    color: var(--white);
-    cursor: pointer;
-    padding: 0.25rem;
-    border: 0.5px solid var(--grey);
-    border-radius: 12px;
-    background-color: color-mix(in srgb, var(--grey), transparent 85%);
+  svg {
+    display: inline;
   }
 
   input:checked + label {
-    background-color: color-mix(in srgb, var(--grey), transparent 85%);
-    padding: 0.25rem;
-    border: 0.5px solid var(--grey);
-    border-radius: 12px;
-    color: var(--white);
+    color: var(--bg-color);
+    background-color: var(--white);
   }
 }
 
@@ -189,7 +202,7 @@ span {
 .card-photo {
   --size: 280px;
   border: 0.5px solid var(--grey);
-  border-radius: 12px;
+  border-radius: 5px;
   width: var(--size);
   height: var(--size);
 
@@ -204,7 +217,7 @@ span {
     object-fit: cover;
     object-view-box: inset(15%);
     transition: object-view-box ease 0.5s;
-    border-radius: 12px;
+    border-radius: 5px;
   }
 
   .image-cover img:hover {
@@ -327,15 +340,36 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-.button-container {
-  background-color: white;
+  align-items: center;
 }
 
-.button {
-  width: 120px;
-  height: 30px;
-  border-radius: 12px;
+.save-button {
+  padding: 0;
+  border-radius: 5px;
+  border: none;
+  outline-offset: 4px;
+  background-color: color-mix(in srgb, var(--blue), var(--bg-color));
+  cursor: pointer;
+
+  span {
+    display: block;
+    color: var(--bg-color);
+    padding: 12px 2rem;
+    background-color: var(--blue);
+    transform: translateY(-4px);
+    border-radius: 5px;
+    transition:
+      transform 250ms ease,
+      filter 250ms ease;
+  }
+
+  &:hover span {
+    transform: translateY(-6px);
+    filter: brightness(110%);
+  }
+  &:active span {
+    transform: translateY(-2px);
+  }
 }
 
 footer {
