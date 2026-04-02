@@ -163,6 +163,7 @@ span {
   flex-direction: row;
   border: none;
   justify-content: center;
+  align-items: center;
   gap: 3rem;
 
   input {
@@ -176,25 +177,40 @@ span {
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
+    color: var(--bg-color);
+
     transition:
       background-color 0.25s ease,
       transform 0.25s ease;
 
     &:hover {
-      color: var(--bg-color);
       background-color: var(--white);
       cursor: pointer;
       transform: translateY(-5px);
+      .label-text {
+        color: var(--bg-color);
+      }
+      svg {
+        color: var(--bg-color);
+      }
+    }
+
+    svg {
+      display: inline;
+      color: var(--white);
+      min-width: 20px;
+      min-height: 20px;
     }
   }
 
-  svg {
-    display: inline;
-  }
-
   input:checked + label {
-    color: var(--bg-color);
     background-color: var(--white);
+    .label-text {
+      color: var(--bg-color);
+    }
+    svg {
+      color: var(--bg-color);
+    }
   }
 }
 
@@ -531,14 +547,14 @@ span {
   }
 
   25% {
-    transform: rotate(75deg);
+    transform: rotate(45deg);
   }
 
   50% {
     transform: rotate(0deg);
   }
   75% {
-    transform: rotate(-75deg);
+    transform: rotate(-45deg);
   }
   100% {
     transform: rotate(0deg);
@@ -548,18 +564,26 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   padding: var(--global-padding);
   margin-inline: var(--global-margin);
+
+  header h2 {
+    font-size: x-large;
+    color: var(--white);
+    padding: 1rem 2rem;
+  }
+
   .footer-list {
     list-style: none;
-    padding: 0;
+    padding: 0 2rem;
   }
 
   .footer-item-link {
     color: var(--grey);
     text-decoration: none;
-    font-size: var(--normals);
-    font-family: "Syne", Arial, sans-serif;
+    font-size: var(--small);
+    font-family: "Nunito", Arial, sans-serif;
   }
 
   & .footer-item-link:hover {
@@ -570,8 +594,8 @@ footer {
 
 /* media queries */
 
-/* tablet view */
-@media (max-width: 678px) {
+/* mobile view */
+@media (max-width: 800px) {
   body {
     width: 100dvw;
     height: 100dvh;
@@ -585,6 +609,7 @@ footer {
   .main-header {
     margin: 0;
     padding: 0 2rem 0 2rem;
+    flex-direction: row-reverse;
   }
 
   .burger-menu {
@@ -601,6 +626,10 @@ footer {
     margin: 0;
   }
 
+  .label-text {
+    display: none;
+  }
+
   .buttons {
     display: flex;
     flex-direction: column;
@@ -609,6 +638,6 @@ footer {
   }
 
   .board {
-    width: 100px;
+    width: auto;
   }
 }
