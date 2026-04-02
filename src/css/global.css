@@ -163,6 +163,7 @@ span {
   flex-direction: row;
   border: none;
   justify-content: center;
+  align-items: center;
   gap: 3rem;
 
   input {
@@ -176,25 +177,40 @@ span {
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
+    color: var(--bg-color);
+
     transition:
       background-color 0.25s ease,
       transform 0.25s ease;
 
     &:hover {
-      color: var(--bg-color);
       background-color: var(--white);
       cursor: pointer;
       transform: translateY(-5px);
+      .label-text {
+        color: var(--bg-color);
+      }
+      svg {
+        color: var(--bg-color);
+      }
+    }
+
+    svg {
+      display: inline;
+      color: var(--white);
+      min-width: 20px;
+      min-height: 20px;
     }
   }
 
-  svg {
-    display: inline;
-  }
-
   input:checked + label {
-    color: var(--bg-color);
     background-color: var(--white);
+    .label-text {
+      color: var(--bg-color);
+    }
+    svg {
+      color: var(--bg-color);
+    }
   }
 }
 
@@ -548,6 +564,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   padding: var(--global-padding);
   margin-inline: var(--global-margin);
 
@@ -577,8 +594,8 @@ footer {
 
 /* media queries */
 
-/* tablet view */
-@media (max-width: 678px) {
+/* mobile view */
+@media (max-width: 800px) {
   body {
     width: 100dvw;
     height: 100dvh;
@@ -592,6 +609,7 @@ footer {
   .main-header {
     margin: 0;
     padding: 0 2rem 0 2rem;
+    flex-direction: row-reverse;
   }
 
   .burger-menu {
@@ -608,6 +626,10 @@ footer {
     margin: 0;
   }
 
+  .label-text {
+    display: none;
+  }
+
   .buttons {
     display: flex;
     flex-direction: column;
@@ -616,10 +638,6 @@ footer {
   }
 
   .board {
-    width: 100px;
-  }
-
-  * {
-    background: rgb(0 100 0 / 0.1) !important;
+    width: auto;
   }
 }
